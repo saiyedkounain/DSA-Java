@@ -1,0 +1,17 @@
+class Solution {
+    public String reverseWords(String s) {
+        // convert the string into elements of a str array
+        // video reference: https://youtu.be/tX-ZcKTNwYk?si=DdHjXA7rGWRuITjS
+        String words [] = s.split(" +"); //the parameter givn is a regex saying 'any number of spaces'
+        StringBuilder sb = new StringBuilder();
+
+        //reverse the words and put in the sb
+        for(int i=words.length-1; i>=0; i--){
+            sb.append(words[i]);
+            sb.append(" ");
+        }
+
+        return sb.toString().trim();
+        
+    }
+}
