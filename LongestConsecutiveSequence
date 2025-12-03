@@ -1,0 +1,43 @@
+// leetcode 128
+// hashmap use karna, to track explored elements of the array to solve using O(n) time complexity
+// video soln: https://youtu.be/LvbtUMdcgbw?si=XvpZB6_UJXfGRSPk
+class Solution {
+    
+    public int longestConsecutive(int[] arr) {
+        // okay, the neetcode's soln ka time exceed hoga, so heres another soln
+        //you use a hashmap
+        Map <Integer, Boolean> map = new HashMap<>();
+        for(int ele: arr){
+            map.put(ele, Boolean.FALSE); // set all of them to false at first
+        }
+
+        int maxLength = 0;
+        for(int i=0; i< arr.length; i++){
+            int nextNum = arr[i] + 1;
+            int currLen  = 1;
+
+            //go forward and check
+            while(map.containsKey(nextNum) && (map.get(nextNum) == false)){ //set has the next number and its not explored yet
+                currLen += 1;
+                map.put(nextNum, Boolean.TRUE); //set it as explored
+
+                // move to the next number
+                nextNum++;
+            }
+
+            // lets go backward and check
+            int prevNum = arr[i] -1;
+            while(map.containsKey(prevNum) && (map.get(prevNum) == false)){
+                currLen+=1;
+                map.put(prevNum, Boolean.TRUE);
+
+                //move to next bit
+                prevNum--;
+            }
+
+            maxLength = Math.max(currLen, maxLength);
+        }
+
+        return maxLength;
+    }
+}
