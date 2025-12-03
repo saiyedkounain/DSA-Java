@@ -1,0 +1,52 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    public static int partition(int nums[],int beg, int end){
+        int pivot = nums[beg];
+        int i = beg;
+        int j = end + 1;
+
+        // newly learnt
+        while(true){
+            do{
+                i++;
+            }while(i <= end && nums[i] < pivot);
+            do{
+                j--;
+            }while(j >= beg && nums[j] > pivot);
+            
+            // break out from this loop
+            if(i >= j){
+                break;
+            }
+            
+            swap(nums, i, j);
+        }
+        
+        swap(nums,beg, j);
+        return j;
+    }
+    public static void quickSort(int[] nums, int beg, int end){
+        if(beg < end){
+            int split = partition(nums,beg, end);
+            quickSort(nums, beg, split -1);
+            quickSort(nums, split+1, end);
+        }
+    }
+    
+    public static void main(String[] args) {
+        int [] nums = {5,4,3,2,1};
+        quickSort(nums, 0 , nums.length-1);
+        
+        for(int i=0;i <nums.length; i++){
+            System.out.print(nums[i] + " ");
+        }
+        
+    }
+}
