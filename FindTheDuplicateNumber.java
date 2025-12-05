@@ -1,3 +1,4 @@
+// video soln: https://youtu.be/wjYnzkAhcNk?si=RuH03UbKSUl4C20B
 class Solution {
     public int findDuplicate(int[] arr) {
         // redoing this using floyds tortoise (slow) and hare (rabbit) algo
