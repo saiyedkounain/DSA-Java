@@ -1,4 +1,5 @@
 // leetcode 371
+// my video soln (just for me): https://youtu.be/7N_hcPYW8-I
 class Solution {
     public int getSum(int a, int b) {
         // this will be done using the xor operation for adding bits
