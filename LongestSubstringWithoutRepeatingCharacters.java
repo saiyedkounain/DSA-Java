@@ -1,5 +1,5 @@
 // leetcode 3
-
+//vid soln: https://youtu.be/1t_IonAbWX4
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         // this is a slinding window pattern
